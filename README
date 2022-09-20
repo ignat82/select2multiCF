@@ -1,3 +1,19 @@
 Plugin for implementation of JIRA multiselect and single select list fields
-with aui select2 look and feel (like fix Version's field)by implementing new
-customfield types
+with aui select2 look and feel (like fix Version's field) by implementing new
+customfield types:
+
+"Select 2 single CF"
+"Select 2 multi CF"
+
+Field are using standard searcher for select list fields
+
+For field to became accessible by SIL scripts it's necessary to set
+Option[] -> string[] and Option -> string mapping for "Select 2 multi CF" and
+"Select 2 single CF" respectively in "AddOns - Cprime Plugins Configuration - Custom
+Field Mapping"
+
+Known issues: field are not visible by SIL life fields.
+
+
+
+
