@@ -1,0 +1,34 @@
+<script type="text/javascript">
+(function($) {
+    AJS.$("#$customField.id option[value='-1']").remove(); ##Removes the default value "None"
+    function convertMulti(id){
+        if (AJS.$('#'+id+"-textarea").length == 0){
+            new AJS.MultiSelect({
+                element: $("#"+id),
+                itemAttrDisplayed: "label",
+                errorMessage: AJS.params.multiselectComponentsError
+            });
+        }
+    }
+
+    AJS.toInit(function(){
+        convertMulti("$customField.id");
+    })
+
+    JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function (e, context) {
+        AJS.$("#$customField.id option[value='-1']").remove();
+        convertMulti("$customField.id");
+    });
+})(AJS.$);
+</script>
+#if( $value )
+    #foreach( $customOption in $value )
+        <span style="word-break: normal;#if( $customOption.deleted )text-decoration:line-through;#end">
+        $customOption.value
+        </span>
+        #if( $velocityCount != $value.size() )
+        ,
+        #end
+    #end
+#end
+

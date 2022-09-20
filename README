@@ -1,0 +1,3 @@
+Plugin for implementation of JIRA multiselect and single select list fields
+with aui select2 look and feel (like fix Version's field)by implementing new
+customfield types
