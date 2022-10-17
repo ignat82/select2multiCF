@@ -5,7 +5,7 @@ function disableField(fieldId) {
     AJS.$(`#${fieldId}-val > span`).prop("style", "display:none");
 }
 
-function unDisabledField(fieldId) {
+function unDisableField(fieldId) {
     AJS.$(`.Select2-Custom-${fieldId}`).removeProp("style", "pointer-events:none; opacity:0.5", "disabled", true);
     AJS.$(`.Select2-Custom-${fieldId} [role=option]`).removeProp("style", "pointer-events:none");
     AJS.$(`#${fieldId}-val`).removeProp("style", "pointer-events:none; opacity:0.5", "disabled", true);
