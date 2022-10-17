@@ -1,26 +1,28 @@
-#disable_html_escaping()
-#customControlHeader ($action $customField.id $customField.name
-$fieldLayoutItem.required $displayParameters $auiparams)
-<script type="text/javascript">
-  AJS.toInit(function () {
-     AJS.$(".select-2-multi-cf").auiSelect2();
-    ## alert("template script running");
-  });
-</script>
-<select class="select-2-multi-cf" id="$customField.id" multiple="multiple"
-name="$customField.id">
+<div class="Select2-Custom-$customField.id" id="Select2-Custom-$customField.id">
+    #disable_html_escaping()
+    #customControlHeader ($action $customField.id $customField.name
+        $fieldLayoutItem.required $displayParameters $auiparams)
+    ## $webResourceManager.requireResource("scriptDisableHide")
+    <script type="text/javascript">
+        AJS.toInit(function () {
+            AJS.$(".select-2-multi-cf").auiSelect2();
+            ## alert("template script running");
+        });
+    </script>
+    <select class="select-2-multi-cf" id="$customField.id" multiple="multiple"
+            name="$customField.id">
 
-    <option></option>
-    #foreach( $option in $configs.options ) )
-        #if (!$option.disabled || $option.disabled == false) ||
-        ($value && $value.contains($option.optionId.toString())))
-             <option value="$option.optionId"
-	             #if ($value && $value.contains($option.optionId.toString()))
-	                selected="selected"
-	             #end
-             >$cfValueEncoder.encodeForHtml($option.value)</option>
+        <option></option>
+        #foreach( $option in $configs.options ) )
+            #if (!$option.disabled || $option.disabled == false) ||
+                ($value && $value.contains($option.optionId.toString())))
+                <option value="$option.optionId"
+                    #if ($value && $value.contains($option.optionId.toString()))
+                        selected="selected"
+                    #end
+                >$cfValueEncoder.encodeForHtml($option.value)</option>
+            #end
         #end
-    #end
-</select>
-#customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)
-
+    </select>
+    #customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)
+</div>

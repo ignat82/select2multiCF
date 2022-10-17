@@ -1,18 +1,21 @@
 Plugin for implementation of JIRA multiselect and single select list fields
 with aui select2 look and feel (like fix Version's field) by implementing new
-customfield types:
+customfield types, inherited from standard multiselect and single select but
+with custom vm templates and js resources:
 
-"Select 2 single CF"
-"Select 2 multi CF"
+"select-2-single-cf"
+"select-2-multi-cf"
 
 Field are using standard searcher for select list fields
 
 For field to became accessible by SIL scripts it's necessary to set
 Option[] -> string[] and Option -> string mapping for "Select 2 multi CF" and
-"Select 2 single CF" respectively in "AddOns - Cprime Plugins Configuration - Custom
-Field Mapping"
+"Select 2 single CF" respectively in "AddOns - CPrime Plugins Configuration -
+Custom Field Mapping"
 
-Known issues: field are not visible by SIL life fields.
+Known issues: to be operable by SIL LF hide, show, disable enable functions
+it's necessary to call from sil the simple js-files with these lines:
+
 
 
 

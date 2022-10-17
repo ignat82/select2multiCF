@@ -13,7 +13,7 @@
   <resource type="i18n" name="i18n" location="${project.artifactId}"/>
   <!-- add our web resources -->
   <web-resource key="${atlassian.plugin.key}.resources"
-                name="select2cf Web Resources">
+                name="select2cf-web-resources">
     <description key="${atlassian.plugin.key}.resources.description">
       AUI plugin and png thumbnails</description>
     <dependency>com.atlassian.auiplugin:ajs</dependency>
@@ -23,7 +23,8 @@ https://community.atlassian.com/t5/Jira-discussions/Jira-Custom-Field-Select2-pr
     <dependency>com.atlassian.auiplugin:jquery-ui-other</dependency>
     <dependency>com.atlassian.auiplugin:aui-select2</dependency>
     <resource type="download" name="images/" location="/images"/>
-    <context>${atlassian.plugin.key}</context>
+    <resource type="download" name="scriptDisableHide" location="/customScript/scriptDisableHide.js"/>
+    <context>atl.general</context>
   </web-resource>
 
   <customfield-type name="Select 2 multi CF" i18n-name-key="select-2-multi-cf.name"
