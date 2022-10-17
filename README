@@ -14,7 +14,11 @@ Option[] -> string[] and Option -> string mapping for "Select 2 multi CF" and
 Custom Field Mapping"
 
 Known issues: to be operable by SIL LF hide, show, disable enable functions
-it's necessary to call from sil the simple js-files with these lines:
+it's necessary to call with SIL the simple js-files calling to functions:
+ - disableField(key); - to disable field;
+ - unDisableField(key); - to enable field;
+ - hideField(key); - to hide field;
+ - showField(key); - to show field;
 
 
 
