@@ -1,5 +1,10 @@
+##	#requireResourcesForContext("select2cfcontext")
+##	$webResourceManager.requireResourcesForContext("select2cfcontext")
+##	#requireResource("ru.homecredit.select2cf:select2cf-web-resources-key")
+##	#requireResource("ru.homecredit.select2cf:resources")
+##    $webResourceManager.requireResource("ru.homecredit.select2cf:select2cf-web-resources-key")
+##    $webResourceManager.requireResource("ru.homecredit.select2cf:resources")
 <div class="Select2-Custom-$customField.id" id="Select2-Custom-$customField.id">
-    ## $webResourceManager.requireResource("scriptDisableHide")
     <script type="text/javascript">
         (function ($) {
             AJS.$("#$customField.id option[value='-1']").remove(); ##Removes the default value "None"

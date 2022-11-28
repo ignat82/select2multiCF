@@ -5,12 +5,28 @@
     ## $webResourceManager.requireResource("scriptDisableHide")
     <script type="text/javascript">
         AJS.toInit(function () {
-            AJS.$(".select-2-single-cf").auiSelect2();
+            if ('MutationObserver' in window) {
+                if (!('jira_editSingleObserver' in window)) {
+                    window.jira_editSingleObserver = new MutationObserver(function(records) {
+                        for (let record of records) {
+                            for (let addedNode of record.addedNodes) {
+                                AJS.$(".select-2-single-cf", addedNode).auiSelect2();
+                            }
+                        }
+                    })
+                    window.jira_editSingleObserver.observe(document.body, {
+                        attributes: false,
+                        childList: true,
+                        subtree: true
+                    })
+                    AJS.$(".select-2-single-cf").auiSelect2();
+                }
+            } else {
+                AJS.$(".select-2-single-cf").auiSelect2();
+            }
         });
     </script>
-    <select class="select-2-single-cf" id="$customField.id"
-            name="$customField.id">
-
+    <select class="select-2-single-cf" id="$customField.id" name="$customField.id">
         <option></option>
         #foreach( $option in $configs.options ) )
             #if (!$option.disabled || $option.disabled == false) ||

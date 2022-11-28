@@ -1,7 +1,25 @@
 <div class="Select2-Custom-$customField.id" id="Select2-Custom-$customField.id">
     <script type="text/javascript">
         AJS.toInit(function () {
-            AJS.$(".select-2-version-single-cf").auiSelect2();
+            if ('MutationObserver' in window) {
+                if (!('jira_editVSingleObserver' in window)) {
+                    window.jira_editVSingleObserver = new MutationObserver(function(records) {
+                        for (let record of records) {
+                            for (let addedNode of record.addedNodes) {
+                                AJS.$(".select-2-version-single-cf", addedNode).auiSelect2();
+                            }
+                        }
+                    })
+                    window.jira_editVSingleObserver.observe(document.body, {
+                        attributes: false,
+                        childList: true,
+                        subtree: true
+                    })
+                    AJS.$(".select-2-version-single-cf").auiSelect2();
+                }
+            } else {
+                AJS.$(".select-2-version-single-cf").auiSelect2();
+            }
         });
     </script>
 	#disable_html_escaping()
